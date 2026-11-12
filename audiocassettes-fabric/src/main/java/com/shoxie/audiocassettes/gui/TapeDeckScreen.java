@@ -53,7 +53,7 @@ public class TapeDeckScreen extends AbstractContainerScreen<TapeDeckMenu> {
                                 }
                             }
                         }
-                ).bounds(getGuiLeft() + 16,getGuiTop() + 55,44,20).build());
+                ).bounds(leftPos + 16,topPos + 55,44,20).build());
 
         //Prev
         addRenderableWidget(
@@ -68,7 +68,7 @@ public class TapeDeckScreen extends AbstractContainerScreen<TapeDeckMenu> {
                                     ClientNetworking.sendTapeDeckSetSong(this.container.getPos(),--cursong);
                             }
                         }
-                ).bounds(getGuiLeft() + 54,getGuiTop() + 33,14,14).build());
+                ).bounds(leftPos + 54,topPos + 33,14,14).build());
 
         //Next
         addRenderableWidget(
@@ -83,7 +83,7 @@ public class TapeDeckScreen extends AbstractContainerScreen<TapeDeckMenu> {
                                     ClientNetworking.sendTapeDeckSetSong(this.container.getPos(),++cursong);
                             }
                         }
-                ).bounds(getGuiLeft() + 100,getGuiTop() + 33,14,14).build());
+                ).bounds(leftPos + 100,topPos + 33,14,14).build());
 
         //Erase
         addRenderableWidget(
@@ -100,7 +100,7 @@ public class TapeDeckScreen extends AbstractContainerScreen<TapeDeckMenu> {
                                             new ResourceLocation("audiocassettes"+":"+"empty"),"--Empty--", true);
                             }
                         }
-                ).bounds(getGuiLeft() + 111,getGuiTop() + 55,47,20).build());
+                ).bounds(leftPos + 111,topPos + 55,47,20).build());
 
     }
     
@@ -126,15 +126,15 @@ public class TapeDeckScreen extends AbstractContainerScreen<TapeDeckMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, GUI);
-        guiGraphics.blit(GUI, this.getGuiLeft(), this.getGuiTop(), 0, 0, this.xSize, this.ySize);
+        guiGraphics.blit(GUI, this.leftPos, this.topPos, 0, 0, this.xSize, this.ySize);
 
         int it = this.container.getWriteTime(24);
         if(this.container.isWriting()) {
             if (it > last) it = last;
             else last = it;
         } else { last = 99; }
-        if(this.container.isWriting()) guiGraphics.blit(GUI, this.getGuiLeft() + 72, this.getGuiTop() + 32, 176, 14, 24 - it, 17);
-		else guiGraphics.blit(GUI, this.getGuiLeft() + 72, this.getGuiTop() + 32, 176, 14, 0, 17);
+        if(this.container.isWriting()) guiGraphics.blit(GUI, this.leftPos + 72, this.topPos + 32, 176, 14, 24 - it, 17);
+		else guiGraphics.blit(GUI, this.leftPos + 72, this.topPos + 32, 176, 14, 0, 17);
     }
 
     public void drawScaledString(GuiGraphics guiGraphics, String text, int x, int y, float size, int color) {

@@ -48,25 +48,25 @@ public class WalkmanScreen extends AbstractContainerScreen<WalkmanMenu> {
         addRenderableWidget(
                 Button.builder(Component.translatable("gui.audiocassettes.stopplaybtn"),
                         (button) -> this.Control(2)
-                ).bounds(getGuiLeft() + 130,getGuiTop() + 40,26,18).build());
+                ).bounds(leftPos + 130,topPos + 40,26,18).build());
 
         //Start
         addRenderableWidget(
                 Button.builder(Component.translatable("gui.audiocassettes.startplaybtn"),
                         (button) -> this.Control(1)
-                ).bounds(getGuiLeft() + 20,getGuiTop() + 40,26,18).build());
+                ).bounds(leftPos + 20,topPos + 40,26,18).build());
 
         //Next
         addRenderableWidget(
                 Button.builder(Component.literal(" > "),
                         (button) -> this.Control(3)
-                ).bounds(getGuiLeft() + 96,getGuiTop() + 40,18,18).build());
+                ).bounds(leftPos + 96,topPos + 40,18,18).build());
 
         //Prev
         addRenderableWidget(
                 Button.builder(Component.literal(" < "),
                         (button) -> this.Control(4)
-                ).bounds(getGuiLeft() + 60,getGuiTop() + 40,18,18).build());
+                ).bounds(leftPos + 60,topPos + 40,18,18).build());
 
     }
     
@@ -96,7 +96,7 @@ public class WalkmanScreen extends AbstractContainerScreen<WalkmanMenu> {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, GUI);
-        guiGraphics.blit(GUI, this.getGuiLeft(), this.getGuiTop(), 0, 0, this.xSize, this.ySize);
+        guiGraphics.blit(GUI, this.leftPos, this.topPos, 0, 0, this.xSize, this.ySize);
     }
 
 
