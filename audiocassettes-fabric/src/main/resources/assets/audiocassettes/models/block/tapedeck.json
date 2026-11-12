@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "audiocassettes:block/td_side",
+    "down": "audiocassettes:block/td_side",
+    "up": "audiocassettes:block/td_top",
+    "east": "audiocassettes:block/td_side",
+    "west": "audiocassettes:block/td_side",
+    "north": "audiocassettes:block/td_face",
+    "south": "audiocassettes:block/td_side"
+  }
+}
